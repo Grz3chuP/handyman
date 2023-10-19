@@ -1,0 +1,41 @@
+.mainButtons {
+  color: black;
+    padding: 3px;
+border: black 1px solid;
+
+}
+
+
+.container {
+
+}
+
+.containerWrapper {
+
+    background-image: url('../assets/handymanbgup.png');
+    background-size: cover;
+    height: 100vh;
+    background-repeat: no-repeat;
+
+  }
+  @media all and (min-width: 768px) {
+    .containerWrapper {
+      background-image: url('../assets/handymanbg.png');
+      background-size: cover;
+      background-repeat: no-repeat;
+      height: 100%;
+
+    }
+  }
+.headerWrapper {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+
+  color: black;
+  font-size: 1.2rem;
+
+
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  font-family: 'Roboto Mono', monospace;
+
+
+}
