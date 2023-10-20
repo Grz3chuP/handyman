@@ -1,0 +1,29 @@
+
+
+<fieldset *ngIf="!userIsLogged()" class="input-group m-2 d-flex flex-column ">
+  <input type="text" placeholder="Email" class="" [(ngModel)]="emailFromForm" >
+  <input type="password" placeholder="Password" [(ngModel)]="passwordFromForm"  class="">
+<button class="btn btn-primary" (click)="loginButtonClicked()">Log In</button>
+  {{testowanieOpozniania(150)}}
+</fieldset>
+<div class="adminPagewrapper" *ngIf="userIsLogged()">
+<div class="logOutButton" >
+  Witaj
+  <button class="btn btn-primary" (click)="logOutButtonClicked()">Log Out</button>
+</div>
+
+
+  <form>
+
+  <input class=""
+          #imageInput
+         type="file"
+         (change)="selectPhoto(imageInput)"
+         accept="image/png, image/jpeg"            >
+    <button class="btn btn-primary" (click)="addPhotoToStorage(imageFromForm)">Add Photo</button>
+  </form>
+</div>
+<div class="test">
+
+</div>
+

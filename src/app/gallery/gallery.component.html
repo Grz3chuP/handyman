@@ -1,1 +1,9 @@
 <p>gallery works!</p>
+<button class="btn btn-primary" (click)="getGalleryItems()" >wyswietl </button>
+<div class="galleryWrapper">
+<div *ngFor="let image of imageURL" class="imageWrapper">
+  <img src="{{image}}" alt="image" class="galleryImage">
+
+
+</div>
+</div>
