@@ -6,3 +6,18 @@ fieldset {
   padding:10px;
   background: rgba(255, 255, 255, 0.2);
 }
+.adminWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 10px;
+}
+.formWrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 10px;
+  background: rgba(229, 217, 217, 0.8);
+  padding: 20px;
+  margin-top: 10px;
+}

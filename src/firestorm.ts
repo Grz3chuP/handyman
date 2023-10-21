@@ -1,6 +1,6 @@
 // Import the functions you need from the SDKs you need
 import {initializeApp} from "firebase/app";
-import {getFirestore, query, collection, getDocs} from "firebase/firestore";
+import {getFirestore, query, collection, getDocs, addDoc} from "firebase/firestore";
 import {getAuth, signInWithEmailAndPassword, onAuthStateChanged, signOut} from "firebase/auth";
 import {signal, WritableSignal} from "@angular/core";
 import { getStorage, ref, uploadBytes, listAll, getDownloadURL } from "firebase/storage";
@@ -34,6 +34,17 @@ export async function getJobsList() {
   });
   console.log(jobs);
   return jobs;
+}
+
+
+export async function addJobToFirestore(title: string, description: string, img: string ) {
+  const collectionRef = collection(db, 'jobs');
+  try {
+   const docRef = await addDoc(collectionRef,  {title: title, description: description, img: img});
+    alert('dodano'+ docRef);
+  } catch (e: any) {
+    alert(e.message)
+  }
 }
 
 const auth = getAuth(app);
@@ -97,7 +108,7 @@ export async function getPhotosFromStorage() {
   if (imageURL.length === 0) {
     result.forEach((itemRef) => {
       getDownloadURL(itemRef).then((url) => {
-        imageURL.push(url)
+        imageURL.push({url: url,name: itemRef.name});
       })
     });
   }

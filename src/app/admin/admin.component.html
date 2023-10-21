@@ -1,4 +1,6 @@
 
+<div class="adminWrapper">
+
 
 <fieldset *ngIf="!userIsLogged()" class="input-group m-2 d-flex flex-column ">
   <input type="text" placeholder="Email" class="" [(ngModel)]="emailFromForm" >
@@ -12,18 +14,23 @@
   <button class="btn btn-primary" (click)="logOutButtonClicked()">Log Out</button>
 </div>
 
-
-  <form>
+  <form class="formWrapper">
 
   <input class=""
           #imageInput
          type="file"
          (change)="selectPhoto(imageInput)"
          accept="image/png, image/jpeg"            >
-    <button class="btn btn-primary" (click)="addPhotoToStorage(imageFromForm)">Add Photo</button>
+  <input type="text" placeholder="Title" [(ngModel)]="titleFromForm"  class="" name="title">
+  <textarea  placeholder="Description" [(ngModel)]="descriptionFromForm"  class="form-control" name="description"></textarea>
+    <button class="btn btn-primary" (click)="addNewJobToFirestore()">Add Photo</button>
   </form>
 </div>
 <div class="test">
 
 </div>
+</div>
+{{titleFromForm}}
+{{descriptionFromForm}}
+{{imageFromForm}}
 

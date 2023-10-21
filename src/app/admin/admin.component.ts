@@ -1,5 +1,5 @@
 import { Component } from '@angular/core';
-import {addPhotoToStorage, checkUserIsLogin, login, logout, userIsLogged} from "../../firestorm";
+import {addJobToFirestore, addPhotoToStorage, checkUserIsLogin, login, logout, userIsLogged} from "../../firestorm";
 
 
 @Component({
@@ -12,6 +12,8 @@ export class AdminComponent {
   emailFromForm = '';
   passwordFromForm = '';
   imageFromForm: any = null;
+  titleFromForm = '';
+  descriptionFromForm = '';
   test: any = userIsLogged();
   fileItem: any = null;
   protected readonly userIsLogged = userIsLogged;
@@ -37,6 +39,15 @@ export class AdminComponent {
     },  time);
 
   }
+  addNewJobToFirestore() {
+    if (this.imageFromForm === null || this.titleFromForm === '' || this.descriptionFromForm === '') {
+      alert('Wypełnij wszystkie pola');
+      return;
+    }
+    addJobToFirestore(this.titleFromForm, this.descriptionFromForm, this.imageFromForm.name);
+    addPhotoToStorage(this.imageFromForm)
+  }
+
   protected readonly addPhotoToStorage = addPhotoToStorage;
 
   protected readonly checkUserIsLogin = checkUserIsLogin;
