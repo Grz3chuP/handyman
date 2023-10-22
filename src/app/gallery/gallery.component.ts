@@ -1,4 +1,4 @@
-import {Component, signal} from '@angular/core';
+import {Component, ElementRef, Renderer2, signal} from '@angular/core';
 import {getJobsList, getPhotosFromStorage, imageURL} from "../../firestorm";
 
 
@@ -19,6 +19,9 @@ export class GalleryComponent {
         if (job.img === photo.name) {
           job.img = photo.url;
         }
+        if (job.before === photo.name) {
+          job.before = photo.url;
+        }
       })
     })
 
@@ -36,4 +39,8 @@ displayGalleryItems() {
 
   protected readonly getPhotosFromStorage = getPhotosFromStorage;
   protected readonly imageURL = imageURL;
+
+
+
+
 }

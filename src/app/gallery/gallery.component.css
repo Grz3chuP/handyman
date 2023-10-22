@@ -9,6 +9,7 @@
     width: 100%;
     height: 100%;
   border-bottom: black 1px solid;
+  position: relative;
 
 
 }
@@ -21,3 +22,18 @@
   padding: 20px 10px 20px 10px;
   border-radius: 15px;
 }
+
+.galleryImageBefore {
+  position: absolute;
+  z-index: 1;
+  top: 0;
+  left: 0;
+
+
+}
+.imageDescription {
+  margin-top: 20px;
+}
+
+
+

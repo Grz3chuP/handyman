@@ -37,10 +37,12 @@ export async function getJobsList() {
 }
 
 
-export async function addJobToFirestore(title: string, description: string, img: string ) {
+export async function addJobToFirestore(title: string, description: string, img: string, imgBefore: any ) {
   const collectionRef = collection(db, 'jobs');
   try {
-   const docRef = await addDoc(collectionRef,  {title: title, description: description, img: img});
+
+   const docRef = await addDoc(collectionRef,  {title: title, description: description, img: img, before: imgBefore});
+
     alert('dodano'+ docRef);
   } catch (e: any) {
     alert(e.message)

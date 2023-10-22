@@ -21,7 +21,13 @@
          type="file"
          (change)="selectPhoto(imageInput)"
          accept="image/png, image/jpeg"            >
-  <input type="text" placeholder="Title" [(ngModel)]="titleFromForm"  class="" name="title">
+
+    <input class=""
+           #imageInputBefore
+           type="file"
+           (change)="selectPhotoBefore(imageInputBefore)"
+           accept="image/png, image/jpeg"            >
+    <input type="text" placeholder="Title" [(ngModel)]="titleFromForm"  class="" name="title">
   <textarea  placeholder="Description" [(ngModel)]="descriptionFromForm"  class="form-control" name="description"></textarea>
     <button class="btn btn-primary" (click)="addNewJobToFirestore()">Add Photo</button>
   </form>

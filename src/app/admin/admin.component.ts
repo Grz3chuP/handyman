@@ -12,6 +12,7 @@ export class AdminComponent {
   emailFromForm = '';
   passwordFromForm = '';
   imageFromForm: any = null;
+  imageFromFormBefore: any = null;
   titleFromForm = '';
   descriptionFromForm = '';
   test: any = userIsLogged();
@@ -29,9 +30,12 @@ export class AdminComponent {
   selectPhoto(imageInput: any) {
     console.log(imageInput);
     this.imageFromForm = imageInput.files[0];
-
     console.log(this.imageFromForm);
-
+  }
+  selectPhotoBefore(imageInput: any) {
+    console.log(imageInput);
+    this.imageFromFormBefore = imageInput.files[0];
+    console.log(this.imageFromForm);
   }
   testowanieOpozniania =  (time: number) => {
     setTimeout(() => {
@@ -44,8 +48,16 @@ export class AdminComponent {
       alert('Wypełnij wszystkie pola');
       return;
     }
-    addJobToFirestore(this.titleFromForm, this.descriptionFromForm, this.imageFromForm.name);
-    addPhotoToStorage(this.imageFromForm)
+    if (this.imageFromFormBefore === null) {
+      addJobToFirestore(this.titleFromForm, this.descriptionFromForm, this.imageFromForm.name, null);
+      addPhotoToStorage(this.imageFromForm)
+    }
+    if (this.imageFromFormBefore !== null) {
+      addJobToFirestore(this.titleFromForm, this.descriptionFromForm, this.imageFromForm.name, this.imageFromFormBefore.name);
+      addPhotoToStorage(this.imageFromFormBefore);
+      addPhotoToStorage(this.imageFromForm)
+
+    }
   }
 
   protected readonly addPhotoToStorage = addPhotoToStorage;
