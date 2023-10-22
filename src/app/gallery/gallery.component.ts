@@ -11,11 +11,7 @@ import {style} from "@angular/animations";
 export class GalleryComponent {
   photoList: any[any] =  getPhotosFromStorage() ;
   galleryJobsList: any[any] = this.getGalleryItems();
-  isBlured: boolean = true;
-  opacity: number = 0.7;
-  blurModyfier: number = 8;
-  opacityEnd: number = 1;
-  blurModyfierEnd: number = 0;
+
  async getGalleryItems() {
     const jobsList: any  = await getJobsList();
     const photoList = await getPhotosFromStorage();

@@ -1,5 +1,5 @@
 {
-  "name": "vendor_name/Handyman",
+  "name": "handyman/handyman",
   "description": "Handyman Angular App",
   "minimum-stability": "stable",
   "license": "proprietary",
@@ -10,7 +10,7 @@
     }
   ],
   "require": {
-    "php": "^7.2"
+
   }
 
 }
