@@ -29,7 +29,7 @@ export class GalleryComponent {
          })
        })
 
-     },  100);
+     },  200);
 
 
 
