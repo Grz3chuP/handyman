@@ -2,7 +2,7 @@
 <div class="galleryWrapper">
   <div *ngFor="let image of galleryJobsList" class="imageWrapper">
     <p class="textSize">{{image.title}}</p>
-    <div *ngif="image.before !== null" class="textSize">Before</div>
+    <div *ngIf="image.before !== null" class="textSize">Before</div>
     <img src="{{image.img}}" alt="image" class="galleryImage">
     <div *ngIf="image.before !== null" class="textSize">
       After (click to reveal!)

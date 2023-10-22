@@ -13,18 +13,26 @@ export class GalleryComponent {
   galleryJobsList: any[any] = this.getGalleryItems();
 
  async getGalleryItems() {
-    const jobsList: any  = await getJobsList();
-    const photoList = await getPhotosFromStorage();
-    jobsList.forEach((job: any) => {
-      photoList.forEach((photo: any) => {
-        if (job.img === photo.name) {
-          job.img = photo.url;
-        }
-        if (job.before === photo.name) {
-          job.before = photo.url;
-        }
-      })
-    })
+   const jobsList: any  = await getJobsList();
+   const photoList = await getPhotosFromStorage();
+     setTimeout(() => {
+
+
+       jobsList.forEach((job: any) => {
+         photoList.forEach((photo: any) => {
+           if (job.img === photo.name) {
+             job.img = photo.url;
+           }
+           if (job.before === photo.name) {
+             job.before = photo.url;
+           }
+         })
+       })
+
+     },  100);
+
+
+
 
     console.log(jobsList);
     console.log(photoList);
