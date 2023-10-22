@@ -40,10 +40,13 @@ export async function getJobsList() {
 export async function addJobToFirestore(title: string, description: string, img: string, imgBefore: any ) {
   const collectionRef = collection(db, 'jobs');
   try {
+ if (imgBefore !== null) {
+   const docRef = await addDoc(collectionRef,  {title: title, description: description, img: img, before: imgBefore , opacity: 0.7, blurMod: 8});
+   alert('dodano'+ docRef);
+ } else {
+   const docRef = await addDoc(collectionRef, {title: title, description: description, img: img, before: imgBefore});
+   alert('dodano'+ docRef);}
 
-   const docRef = await addDoc(collectionRef,  {title: title, description: description, img: img, before: imgBefore});
-
-    alert('dodano'+ docRef);
   } catch (e: any) {
     alert(e.message)
   }

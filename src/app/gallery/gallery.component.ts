@@ -1,5 +1,6 @@
 import {Component, ElementRef, Renderer2, signal} from '@angular/core';
 import {getJobsList, getPhotosFromStorage, imageURL} from "../../firestorm";
+import {style} from "@angular/animations";
 
 
 @Component({
@@ -10,7 +11,11 @@ import {getJobsList, getPhotosFromStorage, imageURL} from "../../firestorm";
 export class GalleryComponent {
   photoList: any[any] =  getPhotosFromStorage() ;
   galleryJobsList: any[any] = this.getGalleryItems();
-
+  isBlured: boolean = true;
+  opacity: number = 0.7;
+  blurModyfier: number = 8;
+  opacityEnd: number = 1;
+  blurModyfierEnd: number = 0;
  async getGalleryItems() {
     const jobsList: any  = await getJobsList();
     const photoList = await getPhotosFromStorage();
@@ -31,7 +36,10 @@ export class GalleryComponent {
     return jobsList;
 
  }
-
+toggleBlur(image: any) {
+image.opacity = 1;
+image.blur = 0;
+}
 displayGalleryItems() {
 
   //  return newGalleryList;
@@ -41,6 +49,6 @@ displayGalleryItems() {
   protected readonly imageURL = imageURL;
 
 
-
-
+  protected readonly blur = blur;
+  protected readonly style = style;
 }

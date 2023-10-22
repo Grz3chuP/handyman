@@ -1,14 +1,20 @@
-<p>gallery works!</p>
 <button class="btn btn-primary" (click)="getGalleryItems()">wyswietl</button>
 <div class="galleryWrapper">
   <div *ngFor="let image of galleryJobsList" class="imageWrapper">
-    <p>{{image.title}}</p>
-
+    <p class="textSize">{{image.title}}</p>
+    <div *ngif="image.before !== null" class="textSize">Before</div>
     <img src="{{image.img}}" alt="image" class="galleryImage">
-    <div *ngIf="image.before !== null">
-      Before
-    <img  src="{{image.before}}" alt="image" class="galleryImageBefore galleryImage">
+    <div *ngIf="image.before !== null" class="textSize">
+      After (click to reveal!)
+      <div style="border: black 1px solid; border-radius: 15px ">
+    <img  src="{{image.before}}"
+          alt="image"
+          [style.opacity]="image.opacity"
+          [style.filter]="'blur(' + image.blur + 'px)'"
+          class="bluredImage galleryImageBefore galleryImage"
+          (click)="toggleBlur(image)" >
     </div>
+    </div >
     <div class="imageDescription">
 
       <p>{{image.description}}</p>
