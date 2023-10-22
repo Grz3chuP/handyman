@@ -3,9 +3,11 @@
 <div class="galleryWrapper">
   <div *ngFor="let image of galleryJobsList" class="imageWrapper">
     <p>{{image.title}}</p>
-    <div>
+
     <img src="{{image.img}}" alt="image" class="galleryImage">
-    <img *ngIf="image.before !== null" src="{{image.before}}" alt="image" class="galleryImageBefore galleryImage">
+    <div *ngIf="image.before !== null">
+      Before
+    <img  src="{{image.before}}" alt="image" class="galleryImageBefore galleryImage">
     </div>
     <div class="imageDescription">
 
