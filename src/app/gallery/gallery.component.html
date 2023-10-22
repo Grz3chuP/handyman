@@ -10,8 +10,8 @@
     <img  src="{{image.before}}"
           alt="image"
           [style.opacity]="image.opacity"
-          [style.filter]="'blur(' + image.blur + 'px)'"
-          class="bluredImage galleryImageBefore galleryImage"
+          [style.filter]="'blur(' + image.blurMod + 'px)'"
+          class=" galleryImageBefore galleryImage"
           (click)="toggleBlur(image)" >
     </div>
     </div >

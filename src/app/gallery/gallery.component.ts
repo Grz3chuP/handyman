@@ -42,7 +42,7 @@ export class GalleryComponent {
  }
 toggleBlur(image: any) {
 image.opacity = 1;
-image.blur = 0;
+image.blurMod = 0;
 }
 displayGalleryItems() {
 
