@@ -6,6 +6,7 @@ import {ContactComponent} from "./contact/contact.component";
 import {AdminComponent} from "./admin/admin.component";
 
 const routes: Routes = [
+  { path: '', redirectTo: '/index', pathMatch: 'full' },
   { path: 'index', component: IndexComponent },
   { path: 'gallery', component: GalleryComponent },
   { path: 'contact', component: ContactComponent },
