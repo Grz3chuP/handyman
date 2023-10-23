@@ -10,6 +10,8 @@ import {
 import {style} from "@angular/animations";
 import {jobListTemplate} from "../../models/joblist";
 
+import * as url from "url";
+
 
 @Component({
   selector: 'app-gallery',
@@ -25,8 +27,6 @@ export class GalleryComponent {
    const jobsList: any  = await getJobsList();
    const photoList = await getPhotosFromStorage();
      setTimeout(() => {
-
-
        jobsList.forEach((job: any) => {
          photoList.forEach((photo: any) => {
            if (job.img === photo.name) {
@@ -38,7 +38,7 @@ export class GalleryComponent {
          })
        })
 
-     },  350);
+     },  500);
 
 
 
@@ -75,4 +75,6 @@ deleteThisPost(id: any) {
   protected readonly blur = blur;
   protected readonly style = style;
   protected readonly userIsLogged = userIsLogged;
+
+
 }

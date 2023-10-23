@@ -90,7 +90,7 @@ height: 100%;
   font-weight: bold;
   color: #e27f28;
   text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.6);
-  font-family: cursive;
+  font-family: 'Playpen Sans', sans-serif;
 }
 p {
   position: absolute;

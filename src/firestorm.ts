@@ -108,14 +108,14 @@ export async function addPhotoToStorage(file: any) {
 
   try {
     const task = await uploadBytes(storageRef, file);
-         console.log(task);
+
+         console.log('tutaj musze' + task);
 
     alert('zdjecie dodane')
   } catch (e: any) {
     alert(e.message)
   }
-  console.log('Uploaded a blob or file!');
-}
+  }
 export async function getPhotosFromStorage() {
   const listRef = ref(storage, 'images');
   const result = await listAll(listRef).then((res) => { return res.items });
