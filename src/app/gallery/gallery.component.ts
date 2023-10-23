@@ -38,7 +38,7 @@ export class GalleryComponent {
          })
        })
 
-     },  200);
+     },  350);
 
 
 
