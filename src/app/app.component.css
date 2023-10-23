@@ -90,4 +90,13 @@ p {
   transform: translateY(-50%);
   font-size: 0.8rem;
 }
-
+footer {
+  background-image: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
+  color: black;
+  font-size: 0.8rem;
+  padding: 5px;
+  text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
+  font-family: 'Roboto Mono', monospace;
+  position: relative;
+  border-top-left-radius: 10px;
+}

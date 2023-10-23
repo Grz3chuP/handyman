@@ -1,6 +1,14 @@
 import {Component, ElementRef, Renderer2, signal} from '@angular/core';
-import {getJobsList, getPhotosFromStorage, imageURL} from "../../firestorm";
+import {
+  deletePhotoFromStorage,
+  getJobsList,
+  getPhotosFromStorage,
+  imageURL,
+  removeJobFromFirestore,
+  userIsLogged
+} from "../../firestorm";
 import {style} from "@angular/animations";
+import {jobListTemplate} from "../../models/joblist";
 
 
 @Component({
@@ -9,6 +17,7 @@ import {style} from "@angular/animations";
   styleUrls: ['./gallery.component.css']
 })
 export class GalleryComponent {
+
   photoList: any[any] =  getPhotosFromStorage() ;
   galleryJobsList: any[any] = this.getGalleryItems();
 
@@ -21,10 +30,10 @@ export class GalleryComponent {
        jobsList.forEach((job: any) => {
          photoList.forEach((photo: any) => {
            if (job.img === photo.name) {
-             job.img = photo.url;
+             job.imgUrl = photo.url;
            }
            if (job.before === photo.name) {
-             job.before = photo.url;
+             job.beforeUrl = photo.url;
            }
          })
        })
@@ -49,10 +58,21 @@ displayGalleryItems() {
   //  return newGalleryList;
 }
 
+deleteThisPost(id: any) {
+   console.log(id.id);
+   if(id.before !== null) {
+      deletePhotoFromStorage(id.before);
+   }
+   deletePhotoFromStorage(id.img);
+   removeJobFromFirestore(id.id);
+   this.getGalleryItems();
+}
+
   protected readonly getPhotosFromStorage = getPhotosFromStorage;
   protected readonly imageURL = imageURL;
 
 
   protected readonly blur = blur;
   protected readonly style = style;
+  protected readonly userIsLogged = userIsLogged;
 }

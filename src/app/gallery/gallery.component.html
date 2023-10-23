@@ -1,12 +1,14 @@
 <div class="galleryWrapper">
   <div *ngFor="let image of galleryJobsList" class="imageWrapper">
     <p class="textSize">{{image.title}}</p>
+    <button *ngIf="userIsLogged()" (click)="deleteThisPost(image)">Delete</button>
     <div *ngIf="image.before !== null" class="textSize">Before</div>
-    <img src="{{image.img}}" alt="image" class="galleryImage">
+    <img src="{{image.imgUrl}}" alt="image" class="galleryImage">
     <div *ngIf="image.before !== null" class="textSize">
-      After (click to reveal!)
-      <div style="border: black 1px solid; border-radius: 15px ">
-    <img  src="{{image.before}}"
+     After
+      <div style="border: black 1px solid; border-radius: 15px; position: relative">
+        <div class="revealButton">click to reveal!</div>
+        <img  src="{{image.beforeUrl}}"
           alt="image"
           [style.opacity]="image.opacity"
           [style.filter]="'blur(' + image.blurMod + 'px)'"

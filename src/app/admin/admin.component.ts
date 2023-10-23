@@ -1,5 +1,16 @@
 import { Component } from '@angular/core';
-import {addJobToFirestore, addPhotoToStorage, checkUserIsLogin, login, logout, userIsLogged} from "../../firestorm";
+import {
+  addJobToFirestore,
+  addPhotoToStorage,
+  checkUserIsLogin,
+  getJobsList, getPhotosFromStorage,
+  login,
+  logout,
+  userIsLogged
+} from "../../firestorm";
+import {jobListTemplate} from "../../models/joblist";
+
+
 
 
 @Component({
@@ -49,15 +60,49 @@ export class AdminComponent {
       return;
     }
     if (this.imageFromFormBefore === null) {
-      addJobToFirestore(this.titleFromForm, this.descriptionFromForm, this.imageFromForm.name, null);
+      const jobListTodb: jobListTemplate = new jobListTemplate(0, this.titleFromForm, this.descriptionFromForm, this.imageFromForm.name, null, null, null, 0.6, 20, [])
+      // addJobToFirestore(this.titleFromForm, this.descriptionFromForm, this.imageFromForm.name, null);
+      console.log(jobListTodb);
+      addJobToFirestore(jobListTodb);
       addPhotoToStorage(this.imageFromForm)
     }
     if (this.imageFromFormBefore !== null) {
-      addJobToFirestore(this.titleFromForm, this.descriptionFromForm, this.imageFromForm.name, this.imageFromFormBefore.name);
+      const jobListTodb: jobListTemplate = new jobListTemplate(0, this.titleFromForm, this.descriptionFromForm, this.imageFromForm.name, null, this.imageFromFormBefore.name, null, 0.6, 20, [])
+      console.log(jobListTodb);
+      addJobToFirestore(jobListTodb);
       addPhotoToStorage(this.imageFromFormBefore);
       addPhotoToStorage(this.imageFromForm)
 
     }
+  }
+  galleryJobsList: any[any] = this.getGalleryItems();
+  async getGalleryItems() {
+    const jobsList: any  = await getJobsList();
+    const photoList = await getPhotosFromStorage();
+    setTimeout(() => {
+
+
+      jobsList.forEach((job: any) => {
+        photoList.forEach((photo: any) => {
+          if (job.img === photo.name) {
+            job.img = photo.url;
+          }
+          if (job.before === photo.name) {
+            job.before = photo.url;
+          }
+        })
+      })
+
+    },  200);
+
+
+
+
+    console.log(jobsList);
+    console.log(photoList);
+    this.galleryJobsList = jobsList;
+    return jobsList;
+
   }
 
   protected readonly addPhotoToStorage = addPhotoToStorage;
