@@ -29,7 +29,7 @@ height: 100%;
       .logo {
         width: 140px;
         height:140px;
-        right: 40%;
+        right: 5%;
         z-index: 0;
         top: 5px;
 
@@ -43,8 +43,9 @@ height: 100%;
         transform: translateY(-50%) ;
       }
       .title {
-        font-size: 2.5rem;
+        font-size: 3rem;
         padding: 20px 0 0 5px;
+        margin-left:50px;
       }
     }
 
@@ -55,7 +56,7 @@ height: 100%;
   color: black;
   font-size: 1.2rem;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-  font-family: 'Roboto Mono', monospace;
+
   position: relative;
   border-bottom-left-radius: 10px;
 
@@ -70,7 +71,7 @@ height: 100%;
   z-index: 0;
   right: 5%;
 
-  /*background-image: url("../assets/handymanlogo.png");*/
+  /*background-image: url("../assets/logohangymansmall.png");*/
   /*background-size: contain;*/
   /*background-repeat: no-repeat;*/
 
@@ -89,8 +90,9 @@ height: 100%;
   font-size: 1.8rem;
   font-weight: bold;
   color: #e27f28;
-  text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.6);
-  font-family: 'Playpen Sans', sans-serif;
+
+
+
 }
 p {
   position: absolute;
@@ -108,7 +110,7 @@ footer {
   font-size: 0.8rem;
   padding: 5px;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
-  font-family: 'Roboto Mono', monospace;
+
    border-top-left-radius: 10px;
    border-bottom-left-radius: 10px;
 }
