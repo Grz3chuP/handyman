@@ -8,22 +8,24 @@ border: black 1px solid;
 
 .container {
 height: 100%;
+
+
 }
 
 .containerWrapper {
 
-    background-image: url('../assets/handymanbgup.png');
-    background-size: cover;
-    height: 100%;
-    background-repeat: no-repeat;
+    /*background-image: url('../assets/handymanbgup.png');*/
+    /*background-size: cover;*/
+    /*height: 100%;*/
+    /*background-repeat: no-repeat;*/
 
   }
   @media all and (min-width: 768px) {
     .containerWrapper {
-      background-image: url('../assets/handymanbg.png');
-      background-size: cover;
-      background-repeat: no-repeat;
-      height: 100%;
+      /*background-image: url('../assets/handymanbg.png');*/
+      /*background-size: cover;*/
+      /*background-repeat: no-repeat;*/
+      /*height: 100%;*/
       .logo {
         width: 140px;
         height:140px;
@@ -31,13 +33,18 @@ height: 100%;
         z-index: 0;
         top: 5px;
 
+
       }
       .logo p {
         position: absolute;
         left: -170%;
         font-size: 1.3rem;
-        top: 50%;
+        top: 60%;
         transform: translateY(-50%) ;
+      }
+      .title {
+        font-size: 2.5rem;
+        padding: 20px 0 0 5px;
       }
     }
 
@@ -81,7 +88,9 @@ height: 100%;
   padding: 15px 0 0 5px;
   font-size: 1.8rem;
   font-weight: bold;
-  color: #075d00;
+  color: #e27f28;
+  text-shadow: 4px 4px 3px rgba(0, 0, 0, 0.6);
+  font-family: cursive;
 }
 p {
   position: absolute;
@@ -91,12 +100,15 @@ p {
   font-size: 0.8rem;
 }
 footer {
+  margin-top: 30px;
+  width: 100%;
+  height: 50px;
   background-image: linear-gradient(to right, rgba(255, 255, 255, 0.8), rgba(255, 255, 255, 0));
   color: black;
   font-size: 0.8rem;
   padding: 5px;
   text-shadow: 1px 1px 1px rgba(0, 0, 0, 0.5);
   font-family: 'Roboto Mono', monospace;
-  position: relative;
-  border-top-left-radius: 10px;
+   border-top-left-radius: 10px;
+   border-bottom-left-radius: 10px;
 }

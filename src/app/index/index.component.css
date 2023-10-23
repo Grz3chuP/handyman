@@ -5,6 +5,8 @@
   font-size: 1.1rem;
 }
 .indexWrapper {
+  font-family: cursive;
+  margin-bottom: 30px;
 
 
 
@@ -16,4 +18,5 @@
   padding: 15px;
   border-radius: 15px;
   margin-bottom: 30px;
+  border: black 2px solid;
 }

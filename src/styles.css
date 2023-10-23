@@ -2,3 +2,24 @@
 @import "bootstrap/dist/css/bootstrap.min.css";
 
 
+html {
+  height: 100%;
+  background-image: url('assets/handymanbgup.png');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+}
+@media all and (min-width: 768px) {
+  html {
+    background-image: url('assets/handymanbg.png');
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    background-attachment: fixed;
+  }
+}
+
+body {
+
+  background-color: rgba(255, 255, 255, 0);
+}
