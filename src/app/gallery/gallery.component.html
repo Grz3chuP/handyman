@@ -15,7 +15,7 @@
     <p class="textSize">{{image.title}}</p>
     <button *ngIf="userIsLogged()" (click)="deleteThisPost(image)">Delete</button>
     <div *ngIf="image.before !== null" class="textSize">Before</div>
-    <img src="{{image.imgUrl}}" alt="image" class="galleryImage">
+    <img src="{{image.imgUrl}}" alt="image" class="galleryImage" loading="lazy">
     <div *ngIf="image.before !== null" class="textSize">
      After
       <div style="border: black 1px solid; border-radius: 15px; position: relative">
@@ -25,7 +25,9 @@
           [style.opacity]="image.opacity"
           [style.filter]="'blur(' + image.blurMod + 'px)'"
           class=" galleryImageBefore galleryImage"
-          (click)="toggleBlur(image)" >
+          (click)="toggleBlur(image)"
+          loading="lazy"
+        >
     </div>
     </div >
     <div class="imageDescription">
