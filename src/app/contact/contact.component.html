@@ -1,29 +1,31 @@
-
 <fieldset>
   <h2>Use this form to send me Email</h2>
   <form (ngSubmit)="sendEmail($event)">
-  <div class="m-3">
-    <label for="exampleFormControlInput1" class="form-label">Enter Your Email address</label>
-    <input type="email"
-           class="form-control"
-           id="exampleFormControlInput1"
-           placeholder="name@example.com"
-            name="from_name"
-           [(ngModel)]="email"
-    >
-  </div>
-  <div class="m-3">
+    <div class="m-3">
+      <label for="exampleFormControlInput1" class="form-label">Enter Your Email address or Phone number</label>
+      <input type="email"
+             class="form-control"
+             id="exampleFormControlInput1"
+             placeholder="name@example.com or Phone number"
+             name="from_name"
+             [(ngModel)]="email"
+      >
+    </div>
+    <div class="m-3">
 
-    <label for="exampleFormControlTextarea1" class="form-label">Send Me Message</label>
-    <textarea class="form-control"
-              id="exampleFormControlTextarea1"
-              rows="5"
-              placeholder="Enter Your Message"
-              name="message"
-              [(ngModel)]="message"
-    ></textarea>
-  </div>
-  <input type="submit" value="send">
+      <label for="exampleFormControlTextarea1" class="form-label">Send Me Message</label>
+      <textarea class="form-control"
+                id="exampleFormControlTextarea1"
+                rows="5"
+                placeholder="Enter Your Message"
+                name="message"
+                [(ngModel)]="message"
+      ></textarea>
+     <div class="submitButtonWrapper w-100 pt-2 justify-content-center d-flex">
+
+    <input class="w-50 rounded-1" type="submit" value="Send Message">
+     </div>
+    </div>
   </form>
   <div class="phoneMassage">
     <h2>You can call me on this phone number</h2>

@@ -13,3 +13,7 @@ fieldset {
   background: rgba(255, 255, 255, 0.6);
 
 }
+
+.submitButtonWrapper input {
+  background-color: rgba(69, 169, 255, 0.7);
+}
