@@ -60,14 +60,14 @@ export class AdminComponent {
       return;
     }
     if (this.imageFromFormBefore === null) {
-      const jobListTodb: jobListTemplate = new jobListTemplate(0, this.titleFromForm, this.descriptionFromForm, this.imageFromForm.name, null, null, null, 0.6, 20, [])
+      const jobListTodb: jobListTemplate = new jobListTemplate(0, this.titleFromForm, this.descriptionFromForm, this.imageFromForm.name, null, null, null, 0.6, 20, this.tagFromForm)
       // addJobToFirestore(this.titleFromForm, this.descriptionFromForm, this.imageFromForm.name, null);
       console.log(jobListTodb);
       addJobToFirestore(jobListTodb);
       addPhotoToStorage(this.imageFromForm)
     }
     if (this.imageFromFormBefore !== null) {
-      const jobListTodb: jobListTemplate = new jobListTemplate(0, this.titleFromForm, this.descriptionFromForm, this.imageFromForm.name, null, this.imageFromFormBefore.name, null, 0.6, 20, [])
+      const jobListTodb: jobListTemplate = new jobListTemplate(0, this.titleFromForm, this.descriptionFromForm, this.imageFromForm.name, null, this.imageFromFormBefore.name, null, 0.6, 20, this.tagFromForm)
       console.log(jobListTodb);
       addJobToFirestore(jobListTodb);
       addPhotoToStorage(this.imageFromFormBefore);
@@ -108,4 +108,22 @@ export class AdminComponent {
   protected readonly addPhotoToStorage = addPhotoToStorage;
 
   protected readonly checkUserIsLogin = checkUserIsLogin;
+  tagFromForm: Array<string> = [];
+  singleTagFromForm = '';
+
+  addTagToThisItem() {
+    if(this.singleTagFromForm === '') {
+      alert('Wpisz tag');
+      return;
+    } else {
+      this.tagFromForm.push(this.singleTagFromForm);
+      this.singleTagFromForm = '';
+    }
+
+  }
+
+  removeTag(tag: string) {
+    this.tagFromForm = this.tagFromForm.filter(item => item !== tag);
+
+  }
 }

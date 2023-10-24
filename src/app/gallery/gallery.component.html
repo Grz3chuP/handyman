@@ -1,5 +1,17 @@
 <div class="galleryWrapper">
-  <div *ngFor="let image of galleryJobsList" class="imageWrapper">
+  <div class="tagMenuWrapper">
+    <div class="w-100">Looking for:
+    </div>
+
+ <div *ngFor="let tag of uniqueTagList">
+    <button (click)="filterByTag(tag)">{{tag}}</button>
+ </div>
+<!--    <select [(ngModel)]="selectedTag" (change)="filterByTag(selectedTag)" >-->
+<!--      <option *ngFor="let tag of uniqueTagList" [value]="tag">{{tag}}</option>-->
+<!--    </select>-->
+
+  </div>
+  <div *ngFor="let image of newJobList" class="imageWrapper">
     <p class="textSize">{{image.title}}</p>
     <button *ngIf="userIsLogged()" (click)="deleteThisPost(image)">Delete</button>
     <div *ngIf="image.before !== null" class="textSize">Before</div>

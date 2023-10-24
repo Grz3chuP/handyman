@@ -22,7 +22,7 @@ export class GalleryComponent {
 
   photoList: any[any] =  getPhotosFromStorage() ;
   galleryJobsList: any[any] = this.getGalleryItems();
-
+  newJobList: any[any] = [];
  async getGalleryItems() {
    const jobsList: any  = await getJobsList();
    const photoList = await getPhotosFromStorage();
@@ -41,8 +41,8 @@ export class GalleryComponent {
      },  500);
 
 
-
-
+this.newJobList = jobsList;
+this.singleTagList();
     console.log(jobsList);
     console.log(photoList);
     this.galleryJobsList = jobsList;
@@ -67,6 +67,33 @@ deleteThisPost(id: any) {
    removeJobFromFirestore(id.id);
    this.getGalleryItems();
 }
+uniqueTagList: string[] = [];
+ selectedTag: string = 'All';
+singleTagList () {
+   let tagList: string[] = [];
+   console.log('przed Tagiem' +this.newJobList);
+   this.newJobList.forEach((job: any) => {
+     console.log('tagi'+job.tags);
+     job.tags.forEach((tag: any) => {
+       tagList.push(tag);
+     })
+
+      console.log('po tagu' +tagList);
+   });
+
+      this.uniqueTagList = [...new Set(tagList)];
+
+}
+
+
+filterByTag(tag: any) {
+    console.log(tag);
+    this.newJobList = this.galleryJobsList.filter((job: any) => {
+      return job.tags.includes(tag);
+    });
+    console.log(this.newJobList);
+}
+
 
   protected readonly getPhotosFromStorage = getPhotosFromStorage;
   protected readonly imageURL = imageURL;
@@ -77,4 +104,6 @@ deleteThisPost(id: any) {
   protected readonly userIsLogged = userIsLogged;
 
 
+  protected readonly event = event;
+  protected readonly self = self;
 }

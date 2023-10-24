@@ -8,6 +8,7 @@ import { GalleryComponent } from './gallery/gallery.component';
 import { ContactComponent } from './contact/contact.component';
 import { AdminComponent } from './admin/admin.component';
 import {FormsModule} from "@angular/forms";
+import { FilterComponent } from './gallery/filter/filter.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import {FormsModule} from "@angular/forms";
     IndexComponent,
     GalleryComponent,
     ContactComponent,
-    AdminComponent
+    AdminComponent,
+    FilterComponent
   ],
   imports: [
     BrowserModule,
