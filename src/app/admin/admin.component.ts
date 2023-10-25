@@ -64,7 +64,12 @@ export class AdminComponent {
       // addJobToFirestore(this.titleFromForm, this.descriptionFromForm, this.imageFromForm.name, null);
       console.log(jobListTodb);
       addJobToFirestore(jobListTodb);
-      addPhotoToStorage(this.imageFromForm)
+      addPhotoToStorage(this.imageFromForm);
+      this.imageFromForm= null;
+      this.imageFromFormBefore = null;
+      this.titleFromForm = '';
+      this.descriptionFromForm = '';
+      this.tagFromForm = [];
     }
     if (this.imageFromFormBefore !== null) {
       const jobListTodb: jobListTemplate = new jobListTemplate(0, this.titleFromForm, this.descriptionFromForm, this.imageFromForm.name, null, this.imageFromFormBefore.name, null, 0.6, 20, this.tagFromForm)
@@ -72,7 +77,11 @@ export class AdminComponent {
       addJobToFirestore(jobListTodb);
       addPhotoToStorage(this.imageFromFormBefore);
       addPhotoToStorage(this.imageFromForm)
-
+      this.imageFromForm= null;
+      this.imageFromFormBefore = null;
+      this.titleFromForm = '';
+      this.descriptionFromForm = '';
+      this.titleFromForm = '';
     }
   }
   galleryJobsList: any[any] = this.getGalleryItems();

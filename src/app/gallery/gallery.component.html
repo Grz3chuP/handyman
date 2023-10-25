@@ -3,8 +3,8 @@
     <div class="w-100">Looking for:
     </div>
 
- <div *ngFor="let tag of uniqueTagList">
-    <button (click)="filterByTag(tag)">{{tag}}</button>
+ <div *ngFor="let tag of uniqueTagList" class="">
+    <button (click)="filterByTag(tag)" class="rounded-2">{{tag}}</button>
  </div>
 <!--    <select [(ngModel)]="selectedTag" (change)="filterByTag(selectedTag)" >-->
 <!--      <option *ngFor="let tag of uniqueTagList" [value]="tag">{{tag}}</option>-->
