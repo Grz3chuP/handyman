@@ -28,7 +28,7 @@ isValid() {
       return;
     } else if (this.isValid()) {
       e.preventDefault();
-      emailjs.sendForm('service_5qtg5lh', 'template_qspkxvo', e.target as HTMLFormElement, '8PQvjepagDVzW_K45')
+      emailjs.sendForm('service_gbtw6gn', 'template_qspkxvo', e.target as HTMLFormElement, '8PQvjepagDVzW_K45')
         .then((result: EmailJSResponseStatus) => {
           console.log(result.text);
           alert('Message sent!');
