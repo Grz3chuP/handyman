@@ -17,3 +17,7 @@ fieldset {
 .submitButtonWrapper input {
   background-color: rgba(69, 169, 255, 0.7);
 }
+
+p {
+  font-weight: bold;
+}
