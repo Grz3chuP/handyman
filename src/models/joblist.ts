@@ -8,7 +8,9 @@ export class jobListTemplate {
               public beforeUrl: any,
               public opacity: number,
               public blurMod: number,
-              public tags: string[])
+              public tags: string[],
+              public isCompare: boolean,
+  )
   {
 
   };

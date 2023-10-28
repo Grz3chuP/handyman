@@ -27,6 +27,17 @@
            type="file"
            (change)="selectPhotoBefore(imageInputBefore)"
            accept="image/png, image/jpeg"            >
+
+    <div>
+      revile 2 photo?-
+      <input class="form-check-input"
+             type="checkbox"
+             name="flexCheckChecked"
+             value=""
+             id="flexCheckChecked"
+             [(ngModel)]="isCompare"
+      >
+    </div>
     <input type="text" placeholder="Title" [(ngModel)]="titleFromForm"  class="" name="title">
   <textarea  placeholder="Description" [(ngModel)]="descriptionFromForm"  class="form-control" name="description"></textarea>
 
@@ -56,4 +67,5 @@
 {{titleFromForm}}
 {{descriptionFromForm}}
 {{imageFromForm}}
+{{isCompare}}
 

@@ -26,6 +26,7 @@ export class AdminComponent {
   imageFromFormBefore: any = null;
   titleFromForm = '';
   descriptionFromForm = '';
+  isCompare = false;
   test: any = userIsLogged();
   fileItem: any = null;
   protected readonly userIsLogged = userIsLogged;
@@ -60,7 +61,7 @@ export class AdminComponent {
       return;
     }
     if (this.imageFromFormBefore === null) {
-      const jobListTodb: jobListTemplate = new jobListTemplate(0, this.titleFromForm, this.descriptionFromForm, this.imageFromForm.name, null, null, null, 0.6, 20, this.tagFromForm)
+      const jobListTodb: jobListTemplate = new jobListTemplate(0, this.titleFromForm, this.descriptionFromForm, this.imageFromForm.name, null, null, null, 0.6, 20, this.tagFromForm, this.isCompare )
       // addJobToFirestore(this.titleFromForm, this.descriptionFromForm, this.imageFromForm.name, null);
       console.log(jobListTodb);
       addJobToFirestore(jobListTodb);
@@ -72,7 +73,7 @@ export class AdminComponent {
       this.tagFromForm = [];
     }
     if (this.imageFromFormBefore !== null) {
-      const jobListTodb: jobListTemplate = new jobListTemplate(0, this.titleFromForm, this.descriptionFromForm, this.imageFromForm.name, null, this.imageFromFormBefore.name, null, 0.6, 20, this.tagFromForm)
+      const jobListTodb: jobListTemplate = new jobListTemplate(0, this.titleFromForm, this.descriptionFromForm, this.imageFromForm.name, null, this.imageFromFormBefore.name, null, 0.6, 20, this.tagFromForm, this.isCompare )
       console.log(jobListTodb);
       addJobToFirestore(jobListTodb);
       addPhotoToStorage(this.imageFromFormBefore);

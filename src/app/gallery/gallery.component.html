@@ -14,10 +14,13 @@
   <div *ngFor="let image of newJobList" class="imageWrapper">
     <p class="textSize">{{image.title}}</p>
     <button *ngIf="userIsLogged()" (click)="deleteThisPost(image)">Delete</button>
-    <div *ngIf="image.before !== null" class="textSize">Before</div>
+    <div *ngIf="image.before !== null" class="textSize">
+      <div *ngIf="image.isCompare">--BEFORE-- </div>
+      </div>
     <img src="{{image.imgUrl}}" alt="image" class="galleryImage" loading="lazy">
     <div *ngIf="image.before !== null" class="textSize">
-     After
+      <div *ngIf="image.isCompare">
+      <div class="p-2"> --AFTER-- </div>
       <div style="border: black 1px solid; border-radius: 15px; position: relative">
         <div class="revealButton">click to reveal!</div>
         <img  src="{{image.beforeUrl}}"
@@ -28,7 +31,17 @@
           (click)="toggleBlur(image)"
           loading="lazy"
         >
+      </div>
     </div>
+      <div *ngIf="!image.isCompare">
+        <div class="mt-3" style="border: black 1px solid; border-radius: 15px; position: relative">
+          <img  src="{{image.beforeUrl}}"
+                alt="image"
+                class=" galleryImageBefore galleryImage"
+                loading="lazy"
+          >
+        </div>
+      </div>
     </div >
     <div class="imageDescription">
 

@@ -44,14 +44,14 @@ export async function addJobToFirestore(object: any) {
   try {
  if (object.before !== null) {
 
-   const docRef = await addDoc(collectionRef, {id: object.id, title: object.title, description: object.description,img: object.img, imgUrl: object.imgUrl, before: object.before, beforeUrl: object.beforeUrl, opacity: object.opacity, blurMod: object.blurMod, tags: object.tags} );
+   const docRef = await addDoc(collectionRef, {id: object.id, title: object.title, description: object.description,img: object.img, imgUrl: object.imgUrl, before: object.before, beforeUrl: object.beforeUrl, opacity: object.opacity, blurMod: object.blurMod, tags: object.tags, isCompare: object.isCompare} );
     await updateDoc(doc(collectionRef, docRef.id), {
       id: docRef.id,
     });
 
    alert('dodano'+ docRef);
  } else {
-   const docRef = await addDoc(collectionRef, {id: object.id, title: object.title, description: object.description,img: object.img, imgUrl: object.imgUrl, before: object.before, beforeUrl: object.beforeUrl, opacity: object.opacity, blurMod: object.blurMod, tags: object.tags} );
+   const docRef = await addDoc(collectionRef, {id: object.id, title: object.title, description: object.description,img: object.img, imgUrl: object.imgUrl, before: object.before, beforeUrl: object.beforeUrl, opacity: object.opacity, blurMod: object.blurMod, tags: object.tags, isCompare: object.isCompare} );
    await updateDoc(doc(collectionRef, docRef.id), {
      id: docRef.id,
    });
