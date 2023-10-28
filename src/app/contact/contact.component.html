@@ -2,13 +2,23 @@
   <h2>Use this form to send me Email</h2>
   <form (ngSubmit)="sendEmail($event)">
     <div class="m-3">
-      <label for="exampleFormControlInput1" class="form-label">Enter Your Email address or Phone number</label>
+      <label for="exampleFormControlInput1" class="form-label">Enter Your Email address</label>
       <input type="email"
              class="form-control"
              id="exampleFormControlInput1"
-             placeholder="name@example.com or Phone number"
+             placeholder="name@example.com"
              name="from_name"
              [(ngModel)]="email"
+      >
+      <label for="phone">Enter a phone number:</label>
+      <input type="tel"
+             class="form-control"
+             id="phone"
+             name="from_tel"
+             [(ngModel)]="tel"
+             placeholder="087-123-4567"
+             pattern="[0-9]{3}-[0-9]{3}-[0-9]{4}"
+             required
       >
     </div>
     <div class="m-3">

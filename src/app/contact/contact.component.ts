@@ -13,6 +13,7 @@ export class ContactComponent {
 
 email: string = '';
 message: string = '';
+tel: string = '';
 
 isValid() {
   const emailRegex = /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,}$/i;
@@ -32,6 +33,10 @@ isValid() {
         .then((result: EmailJSResponseStatus) => {
           console.log(result.text);
           alert('Message sent!');
+          this.email = '';
+          this.tel = '';
+          this.message = '';
+
         }, (error) => {
           console.log(error.text);
           alert('An error occurred' + error.text + ', Please try again');
