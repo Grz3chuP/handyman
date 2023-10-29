@@ -31,14 +31,14 @@ isValid() {
       e.preventDefault();
       emailjs.sendForm('service_gbtw6gn', 'template_qspkxvo', e.target as HTMLFormElement, '8PQvjepagDVzW_K45')
         .then((result: EmailJSResponseStatus) => {
-          console.log(result.text);
+
           alert('Message sent!');
           this.email = '';
           this.tel = '';
           this.message = '';
 
         }, (error) => {
-          console.log(error.text);
+
           alert('An error occurred' + error.text + ', Please try again');
         });
     }

@@ -34,7 +34,6 @@ export async function getJobsList() {
     jobs.push(doc.data());
     jobs.id = doc.id;
   });
-  console.log(jobs);
   return jobs;
 }
 
@@ -96,9 +95,9 @@ export const logout = async () => {
   try {
     await signOut(auth);
     userIsLogged.set(false);
-    console.log(userIsLogged);
+
   } catch (error) {
-    console.log(error);
+
   }
 }
 // dodawanie zdjecia do storage firebase
@@ -127,8 +126,6 @@ export async function getPhotosFromStorage() {
       })
     });
   }
-  console.log('Foteczki z Firestora' + result);
-  console.log('Foteczki ' + imageURL);
 
   // return result;
      return imageURL;
@@ -146,7 +143,7 @@ export async function getPhotosFromStorage() {
   } catch (e: any) {
     alert(e.message)
   }
-  console.log('Uploaded a blob or file!');
+
  }
 
  //remove job from firestore

@@ -43,8 +43,6 @@ export class GalleryComponent {
 
 this.newJobList = jobsList;
 this.singleTagList();
-    console.log(jobsList);
-    console.log(photoList);
     this.galleryJobsList = jobsList;
     return jobsList;
 
@@ -59,7 +57,7 @@ displayGalleryItems() {
 }
 
 deleteThisPost(id: any) {
-   console.log(id.id);
+
    if(id.before !== null) {
       deletePhotoFromStorage(id.before);
    }
@@ -71,14 +69,14 @@ uniqueTagList: string[] = [];
  selectedTag: string = 'All';
 singleTagList () {
    let tagList: string[] = [];
-   console.log('przed Tagiem' +this.newJobList);
+
    this.newJobList.forEach((job: any) => {
-     console.log('tagi'+job.tags);
+
      job.tags.forEach((tag: any) => {
        tagList.push(tag);
      })
 
-      console.log('po tagu' +tagList);
+
    });
 
       this.uniqueTagList = [...new Set(tagList)];
@@ -87,12 +85,12 @@ singleTagList () {
 
 
 filterByTag(tag: any) {
-    console.log(tag);
+
     this.selectedTag = tag;
     this.newJobList = this.galleryJobsList.filter((job: any) => {
       return job.tags.includes(tag);
     });
-    console.log(this.newJobList);
+
 }
 
 
