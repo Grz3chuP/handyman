@@ -88,6 +88,7 @@ singleTagList () {
 
 filterByTag(tag: any) {
     console.log(tag);
+    this.selectedTag = tag;
     this.newJobList = this.galleryJobsList.filter((job: any) => {
       return job.tags.includes(tag);
     });

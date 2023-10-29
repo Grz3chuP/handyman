@@ -56,7 +56,7 @@ export class AdminComponent {
 
   }
   addNewJobToFirestore() {
-    if (this.imageFromForm === null || this.titleFromForm === '' || this.descriptionFromForm === '') {
+    if (this.imageFromForm === null || this.titleFromForm === '' ) {
       alert('Wypełnij wszystkie pola');
       return;
     }

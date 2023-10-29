@@ -65,3 +65,15 @@
   padding: 20px 10px 20px 10px;
   border-radius: 15px;
 }
+.selectedTag {
+  background: rgba(69, 169, 255, 0.7);
+  border: black 1px solid;
+  box-shadow: rgba(0, 0, 0, 0.6) 3px 4px 3px;
+  transition: 0.5s ease;
+}
+.notSelectedTag {
+  background: rgba(240, 248, 255, 0.7);
+  border: black 1px solid;
+  box-shadow: rgba(0, 0, 0, 0.4) 2px 2px 2px;
+  transition: 0.5s ease;
+}
